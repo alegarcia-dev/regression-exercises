@@ -6,7 +6,7 @@
 #
 #       Description: Functions needed for wrangling the zillow dataset.
 #
-#       Fields:
+#       Variables:
 #
 #           _zillow_file
 #           _zillow_db
