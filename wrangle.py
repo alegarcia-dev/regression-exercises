@@ -125,6 +125,22 @@ def prepare_zillow_data(df: pd.core.frame.DataFrame) -> pd.core.frame.DataFrame:
     # Fill in the taxamount column with the mean
     df.taxamount.fillna(df.taxamount.mean(), inplace = True)
 
+    # Remove properties with less than 60 square feet
+    sixty_square_feet_or_more = df.calculatedfinishedsquarefeet >= 60
+    df = df[sixty_square_feet_or_more]
+
+    # Rename the columns for readability
+    df = df.rename(columns = {
+        'bedroomcnt' : 'bedroom_count',
+        'bathroomcnt' : 'bathroom_count',
+        'calculatedfinishedsquarefeet' : 'square_feet',
+        'taxvaluedollarcnt' : 'tax_value_dollar_count',
+        'yearbuilt' : 'year_built',
+        'taxamount' : 'tax_amount',
+        'fips' : 'fed_code',
+        'propertylandusedesc' : 'property_land_use_description'
+    })
+
     return df
 
 ################################################################################
