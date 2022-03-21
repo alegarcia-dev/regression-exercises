@@ -4,4 +4,3 @@ env.py
 __pycache__/
 *.csv
 *.xlsx
-get_db_url.py
